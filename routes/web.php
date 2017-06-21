@@ -16,5 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//Rutas que maneja el Auth Controller
 Route::get('/home', 'HomeController@index');
+//Rutas que devuelven al Home
+Route::get('/', function () {
+    return view('home');
+});
+//Rutas que todas vuelven al Home...SPAxD
+Route::any('{all}', function () {
+     return view('home');
+})->where(['all' => '.*']);
