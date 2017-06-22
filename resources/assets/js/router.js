@@ -7,30 +7,35 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-Vue.use(vueRouter)
+Vue.use(VueRouter)
 
-import Form from '.components/form.vue'
-import Show from '.componentes/show.vue'
-
+import Form from './components/Form.vue'
+import Show from './components/Show.vue'
+import Index from './components/Index.vue'
+import home from './components/home.vue'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('index', require('./components/Index.vue'));
+//Vue.component('index', require('./components/Index.vue'));
 
 export default new VueRouter({
 	mode: 'hash',
 	base: __dirname,
-	routes[{
+	routes:[{
 		path: '/actividades',
-		component: {
-			template: '<div><index></index></div>'
+		components: {
+			default: Index
+			//template: '<div><index></index></div>'
+
 					}
 		},
+		{path: '/', component: home},
 		{path: '/actividades/create', component: Form},
 		{path: '/actividades/:id/edit', component: Form, meta: {mode: 'edit'}},
 		{path: '/actividades/:id', component: Show},
+
 	]
 });

@@ -9,16 +9,19 @@
             <table class="table">
               <thead>
               <tr>
+                <th>Id</th>
                 <th>Nombre</th>
-                <th>Categoria</th>
+                <th>Descripcion</th>
               </tr>
             </thead>
             <tbody>
-              <tr> v-for="actividad in model">
+              <tr v-for="actividad in model">
+                <td>
+                  {{ actividad.id}}</td>
                 <td>
                   <router-link :to="{ path: '/actividades/'+actividad.id }">{{ actividad.nombre}}</router-link>
                 </td>
-                <td> {{actividad.codigo}}
+                <td> {{actividad.descripcion}}
                 </td>
               </tr>
             </tbody>
@@ -35,19 +38,20 @@
 
         }
     },
-    mounted() {
+    beforeMount() {
       console.log('Component mounted.')
       this.fetchData()
     },
-    methods:(){
+    methods:{
       fetchData(){
         var vm = this
-          vm.$http.get('api/actividades') .then(function(response)){
+          vm.$http.get('api/actividades') .then(function(response){
             Vue.set(vm.$data, 'model', response.data)
           })
-          .catch(function(error)) {
+          .catch(function(error) {
             console.log(error)
           })
       },
     }
+}
 </script>

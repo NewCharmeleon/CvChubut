@@ -1,7 +1,7 @@
-@extends('layouts.app')
+<template>
 
-@section('content')
-<!--<div class="container">
+
+<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -14,10 +14,9 @@
         </div>
     </div>
     <div class="links">
-        <a href="{{ url('/usuarios') }}">Usuarios</a>
-        <router-link tag="a" to='/actividades'>Actividades</routerlink>
+        <router-link tag="a" to='/usuarios'>Usuarios</router-link>
+        <router-link tag="a" to='/actividades'>Actividades</router-link>
 
     </div>
-</div>-->
-<router-view></router-view>
-@endsection
+</div>
+</template>

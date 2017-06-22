@@ -4,12 +4,13 @@
   <form  @submit.prevent="save">
     <div class="form-group">
       <label for="add-nombre">Nombre</label>
-      <input class="form-control" id="add-nombre" v-model="form.nombre" />
+      <input class="form-control" id="add-nombre" v-model="form.nombre" placeholder="{{actividad.nombre}}"/>
       <small class="text-danger" v-if="errors.nombre"  v-for="error in errors.nombre" >{{ error }}</small>
     </div>
     <div class="form-group">
-      <label for="add-categoria">Categoria</label>
-     //select()
+      <label for="add-descripcion">Descripcion</label>
+      <input class="form-control" id="add-descripcion" v-model="form.descripcion" />
+      <small class="text-danger" v-if="errors.descripcion"  v-for="error in errors.descripcion" >{{ error }}</small>
     </div>
     <button class="btn btn-success">Guardar</button>
      <router-link :to="{ path: '/actividades' }" class="btn btn-danger">Cancelar</router-link>
@@ -64,7 +65,7 @@
                          vm.$http[vm.method](vm.url, vm.form).then(function(response) {
 
                             if(response.data.saved) {
-                                
+
                                 vm.$router.push('/actividades')
 
                             }else{
@@ -77,10 +78,7 @@
                             Vue.set(vm.$data, 'errors', error.response.data)
                         })
 
-
-
             },
-
 
       }
     }
