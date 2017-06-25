@@ -8,15 +8,17 @@
                 <div class="panel-heading">Cv Chubut</div>
 
                 <div class="panel-body">
-                    Bienvenido klsdjfklñjdajlkfkl!
+
+                      <h2>Bienvenido a Cv Chubut!!!</h2>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="links">
+    <!--<div class="links">
         <router-link tag="a" to='/usuarios'>Usuarios</router-link>
         <router-link tag="a" to='/actividades'>Actividades</router-link>
 
-    </div>
+    </div>-->
 </div>
 </template>

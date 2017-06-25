@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cv Chubut') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -53,6 +53,21 @@
                             <li><a href="{{ url('/login') }}">Logueate</a></li>
                             <li><a href="{{ url('/register') }}">Registrate</a></li>
                         @else
+                          <!-- Authentication Role Buttons -->
+                            @if (Entrust::hasRole('administrador'))
+                              <li><router-link :to="{ path: '/usuarios' }" class="btn btn-info">Usuarios</router-link></li>
+                              <li> <router-link :to="{ path: '/referentes' }" class="btn btn-info">Referentes</router-link></li>
+                              <li><router-link :to="{ path: '/oferentes' }" class="btn btn-info">Oferentes</router-link></li>
+                              <li> <router-link :to="{ path: '/estudiantes' }" class="btn btn-info">Estudiantes</router-link></li>
+                              <li><router-link :to="{ path: '/actividades' }" class="btn btn-info">Actividades</router-link></li>
+                            @elseif (Entrust::hasRole('secretaria'))
+                              <li> <router-link :to="{ path: '/referentes' }" class="btn btn-info">Referentes</router-link></li>
+                              <li><router-link :to="{ path: '/oferentes' }" class="btn btn-info">Oferentes</router-link></li>
+                              <li> <router-link :to="{ path: '/estudiantes' }" class="btn btn-info">Estudiantes</router-link></li>
+                              <li><router-link :to="{ path: '/actividades' }" class="btn btn-info">Actividades</router-link></li>
+                            @elseif (Entrust::hasRole('estudiante'))
+                              <li><router-link :to="{ path: '/actividades' }" class="btn btn-info">Actividades</router-link></li>
+                            @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

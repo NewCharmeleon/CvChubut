@@ -4,16 +4,16 @@
   <form  @submit.prevent="save">
     <div class="form-group">
       <label for="add-nombre">Nombre</label>
-      <input class="form-control" id="add-nombre" v-model="form.nombre" />
-      <small class="text-danger" v-if="errors.nombre"  v-for="error in errors.nombre" >{{ error }}</small>
+      <input class="form-control" id="add-nombre" v-model="form.name" />
+      <small class="text-danger" v-if="errors.name"  v-for="error in errors.name" >{{ error }}</small>
     </div>
     <div class="form-group">
-      <label for="add-descripcion">Descripcion</label>
-      <input class="form-control" id="add-descripcion" v-model="form.descripcion" />
-      <small class="text-danger" v-if="errors.descripcion"  v-for="error in errors.descripcion" >{{ error }}</small>
+      <label for="add-email">Email</label>
+      <input class="form-control" id="add-email" v-model="form.email" />
+      <small class="text-danger" v-if="errors.email"  v-for="error in errors.email" >{{ error }}</small>
     </div>
     <button class="btn btn-success">Guardar</button>
-     <router-link :to="{ path: '/actividades' }" class="btn btn-danger">Cancelar</router-link>
+     <router-link :to="{ path: '/usuarios' }" class="btn btn-danger">Cancelar</router-link>
   </form>
 </div>
 </template>
@@ -26,9 +26,9 @@
                 form: {},
                 errors: {},
                 option: {},
-                url: 'api/actividades',
+                url: 'api/usuarios',
                 method: 'post',
-                initialize:'api/actividades'
+                initialize:'api/usuarios'
             }
       },
       beforeMount() {
@@ -66,7 +66,7 @@
 
                             if(response.data.saved) {
 
-                                vm.$router.push('/actividades')
+                                vm.$router.push('/usuarios')
 
                             }else{
 

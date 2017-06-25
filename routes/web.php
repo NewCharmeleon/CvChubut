@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 //Rutas que maneja el Auth Controller
@@ -22,6 +22,12 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', function () {
     return view('home');
 });
+/*Route::get('admin', [
+    'as'=>'admin.index',
+    'uses'=> function(){
+        return view('admin.index');
+    }
+]);*/
 //Rutas que todas vuelven al Home...SPAxD
 Route::any('{all}', function () {
      return view('home');

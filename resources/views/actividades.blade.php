@@ -8,7 +8,7 @@
         <div id="app">
 
                  <router-link to="/actividades" target="_self">
-                  Actividades
+                  Actividades jkljkljkl
                  </router-link>
 
 
