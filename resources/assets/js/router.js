@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * include Vue and Vue Resource. This gives a great starting point for
@@ -9,10 +8,16 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter)
 
+
+//import HomeUsuario from './components/HomeUsuario.vue'
 import Form from './components/Form.vue'
 import Show from './components/Show.vue'
 import Index from './components/Index.vue'
 import Home from './components/Home.vue'
+import FormUsuario from './components/FormUsuario.vue'
+import ShowUsuario from './components/ShowUsuario.vue'
+import IndexUsuario from './components/IndexUsuario.vue'
+import IndexReferente from './components/IndexReferente.vue'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -24,11 +29,11 @@ import Home from './components/Home.vue'
 export default new VueRouter({
 	mode: 'hash',
 	base: __dirname,
-	routes: [
-	{
+	routes: [{
 		path: '/usuarios',
 		components: {
 			default: IndexUsuario,
+
 			//template: '<div><index></index></div>'
 
 					}
@@ -40,7 +45,7 @@ export default new VueRouter({
 
 		{path: '/referentes',
 		components: {
-			default: Index,
+			default: IndexReferente,
 			//template: '<div><index></index></div>'
 
 					}

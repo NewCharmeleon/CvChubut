@@ -18,8 +18,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 //Rutas que redirigen al api segun lo que se invoque...xD
+Route::resource('usuarios','UserController');
 Route::resource('personas','PersonaController');
 Route::resource('oferentes','OferenteController');
 Route::resource('estudiantes','EstudianteController');
-Route::resource('actividades','actividadController');
+Route::resource('actividades','ActividadController');
 Route::resource('carreras','CarreraController');
