@@ -83,5 +83,3 @@ public function show(Request $request, $id)
  }
 
 }
-
-}

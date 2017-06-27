@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h2>Referentes</h2>
+        <h2>Estudiantes</h2>
             <div class="actions">
 
-                <router-link :to="{ path: '/referentes/create' } "
-                 class="btn btn-info">Nuevo Referente</router-link>
+                <router-link :to="{ path: '/estudiantes/create' } "
+                 class="btn btn-info">Nuevo Estudiante</router-link>
             </div>
             <table class="table">
               <thead>
@@ -12,22 +12,22 @@
                 <th>Id</th>
                 <th>Persona</th>
                 <th>Rol</th>
+                <th>Carrera</th>
               </tr>
             </thead>
-            <tbody v-if="referentes">
-              uiouwiowr
-              <tr v-for="referentes in model">
+            <tbody v-if="estudiantes">
+                <tr v-for="estudiantes in model">
                 <td>
-                  {{referente.id}}</td>
+                  {{estudiante.id}}</td>
                 <td>
-                  <router-link :to="{ path: '/referentes/'+referente.id }">{{ referente.persona}}</router-link>
+                  <router-link :to="{ path: '/estudiantes/'+estudiante.id }">{{ estudiante.persona}}</router-link>
                 </td>
-                <td> {{referente.rol}}
+                <td> {{estudiante.rol}}
                 </td>
               </tr>
             </tbody>
             <tbody v-else>
-              <h2>No existen datos de Referentes</h2>
+              <h2>No existen datos de Estudiantes</h2>
             </tbody>
           </table>
 
@@ -49,7 +49,7 @@ export default {
     methods:{
       fetchData(){
         var vm = this
-          vm.$http.get('api/referentes') .then(function(response){
+          vm.$http.get('api/estudiantes') .then(function(response){
             Vue.set(vm.$data, 'model', response.data)
           })
           .catch(function(error) {

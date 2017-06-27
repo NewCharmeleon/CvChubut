@@ -21,6 +21,7 @@ Route::get('/user', function (Request $request) {
 Route::resource('usuarios','UserController');
 Route::resource('personas','PersonaController');
 Route::resource('oferentes','OferenteController');
+Route::resource('referentes','ReferenteController');
 Route::resource('estudiantes','EstudianteController');
 Route::resource('actividades','ActividadController');
 Route::resource('carreras','CarreraController');

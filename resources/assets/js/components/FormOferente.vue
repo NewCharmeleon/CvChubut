@@ -13,7 +13,7 @@
       <small class="text-danger" v-if="errors.rol"  v-for="error in errors.rol" >{{ error }}</small>
     </div>
     <button class="btn btn-success">Guardar</button>
-     <router-link :to="{ path: '/referentes' }" class="btn btn-danger">Cancelar</router-link>
+     <router-link :to="{ path: '/oferentes' }" class="btn btn-danger">Cancelar</router-link>
   </form>
 </div>
 </template>
@@ -26,9 +26,9 @@
                 form: {},
                 errors: {},
                 option: {},
-                url: 'api/referentes',
+                url: 'api/oferentes',
                 method: 'post',
-                initialize:'api/referentes'
+                initialize:'api/oferentes'
             }
       },
       beforeMount() {
@@ -66,7 +66,7 @@
 
                             if(response.data.saved) {
 
-                                vm.$router.push('/referentes')
+                                vm.$router.push('/oferentes')
 
                             }else{
 

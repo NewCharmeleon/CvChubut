@@ -12,8 +12,13 @@
       <input class="form-control" id="add-rol" v-model="form.rol" />
       <small class="text-danger" v-if="errors.rol"  v-for="error in errors.rol" >{{ error }}</small>
     </div>
+    <div class="form-group">
+      <label for="add-carrera">Rol</label>
+      <input class="form-control" id="add-carrera" v-model="form.rol" />
+      <small class="text-danger" v-if="errors.carrera"  v-for="error in errors.carrera" >{{ error }}</small>
+    </div>
     <button class="btn btn-success">Guardar</button>
-     <router-link :to="{ path: '/referentes' }" class="btn btn-danger">Cancelar</router-link>
+     <router-link :to="{ path: '/estudiantes' }" class="btn btn-danger">Cancelar</router-link>
   </form>
 </div>
 </template>
@@ -26,9 +31,9 @@
                 form: {},
                 errors: {},
                 option: {},
-                url: 'api/referentes',
+                url: 'api/estudiantes',
                 method: 'post',
-                initialize:'api/referentes'
+                initialize:'api/estudiantes'
             }
       },
       beforeMount() {
@@ -66,7 +71,7 @@
 
                             if(response.data.saved) {
 
-                                vm.$router.push('/referentes')
+                                vm.$router.push('/oferentes')
 
                             }else{
 
