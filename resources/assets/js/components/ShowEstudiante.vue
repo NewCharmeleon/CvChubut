@@ -2,7 +2,8 @@
     <div>
         <router-link :to="model.id+'/edit'" class="btn btn-warning">Editar</router-link>
         <button class="btn btn-danger" @click="remove">Borrar</button>
-
+        <td> <h2>Nuevo Estudiante</h2>
+        </td>
         <br><br>
         <b>Id: </b>{{ model.id }}
         <br><br>

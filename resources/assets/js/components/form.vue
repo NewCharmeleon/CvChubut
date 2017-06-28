@@ -1,6 +1,7 @@
 <template >
 <div>
   <h2>{{titulo}}</h2>
+  <p>Edicion de Actividades</p>
   <form  @submit.prevent="save">
     <div class="form-group">
       <label for="add-nombre">Nombre</label>

@@ -57,15 +57,21 @@ class OferenteController extends Controller
   public function update(Request $request, $id)
    {
       //creo una variable
-        $oferente=Oferente::find($id);
-        $oferente->persona=$request->persona;
+        $oferente=Oferente::findOrFail($id);
+      /*  $oferente->persona=$request->persona;
         $oferente->rol=$request->rol;
           //devolver codigo estado
         if($oferente->save()){
             return response()->json(['OK'],200);
         }else{
             return response()->json(['Not found'],404);
-        }
+        }*/
+        $actividad->update($request->all());
+        return response()
+                ->json([
+                    'saved' => true
+                    
+                ]);
 
 
    }

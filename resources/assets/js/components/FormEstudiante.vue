@@ -1,8 +1,11 @@
 <template >
 <div>
   <h2>{{titulo}}</h2>
+
   <form  @submit.prevent="save">
+
     <div class="form-group">
+      <p>Edicion de Estudiantes</p>
       <label for="add-persona">Persona</label>
       <input class="form-control" id="add-persona" v-model="form.persona" />
       <small class="text-danger" v-if="errors.persona"  v-for="error in errors.persona" >{{ error }}</small>
@@ -13,8 +16,8 @@
       <small class="text-danger" v-if="errors.rol"  v-for="error in errors.rol" >{{ error }}</small>
     </div>
     <div class="form-group">
-      <label for="add-carrera">Rol</label>
-      <input class="form-control" id="add-carrera" v-model="form.rol" />
+      <label for="add-carrera">Carrera</label>
+      <input class="form-control" id="add-carrera" v-model="form.carrera" />
       <small class="text-danger" v-if="errors.carrera"  v-for="error in errors.carrera" >{{ error }}</small>
     </div>
     <button class="btn btn-success">Guardar</button>
@@ -71,7 +74,7 @@
 
                             if(response.data.saved) {
 
-                                vm.$router.push('/oferentes')
+                                vm.$router.push('/estudiantes')
 
                             }else{
 

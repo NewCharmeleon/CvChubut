@@ -6,7 +6,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 //import HomeUsuario from './components/HomeUsuario.vue'
@@ -49,8 +49,7 @@ export default new VueRouter({
 		path: '/usuarios',
 		components: {
 			default: IndexUsuario,
-
-			//template: '<div><index></index></div>'
+			
 
 					}
 		},

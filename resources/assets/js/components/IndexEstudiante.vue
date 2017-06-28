@@ -24,6 +24,8 @@
                 </td>
                 <td> {{estudiante.rol}}
                 </td>
+                <td> {{estudiante.carrera}}
+                </td>
               </tr>
             </tbody>
             <tbody v-else>
@@ -42,7 +44,7 @@ export default {
 
     }
 },
-    beforeMount() {
+    mounted() {
       console.log('Component mounted.')
       this.fetchData()
     },

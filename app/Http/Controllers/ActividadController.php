@@ -11,7 +11,7 @@ class ActividadController extends Controller
 {
   public function index()
    {
-       return  Actividad::orderBy('nombre')->get();
+       return  Actividad::orderBy('id')->get();
 
    }
    public function show(Request $request, $id)
@@ -45,7 +45,7 @@ class ActividadController extends Controller
     }
     public function edit($id)
    {
-        $actividad = Actividad::find($id);
+        $actividad = Actividad::findOrFail($id);
 
 
 
@@ -58,15 +58,21 @@ class ActividadController extends Controller
     public function update(Request $request, $id)
      {
         //creo una variable
-          $actividad=Actividad::find($id);
-          $actividad->nombre=$request->nombre;
-          $actividad->descripcion=$request->descripcion;
+          $actividad=Actividad::findOrFail($id);
+          $actividad->update($request->all());
+          //$actividad->nombre=$request->nombre;
+          //$actividad->descripcion=$request->descripcion;
             //devolver codigo estado
-          if($actividad->save()){
+          /*if($actividad->save()){
               return response()->json(['OK'],200);
           }else{
               return response()->json(['Not found'],404);
-          }
+          }*/
+          return response()
+                  ->json([
+                      'saved' => true
+                      
+                  ]);
 
 
      }

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
   public function index()
    {
-       return  User::orderBy('name')->get();
+       return  User::orderBy('id')->get();
 
    }
    public function show(Request $request, $id)
@@ -20,14 +20,15 @@ class UserController extends Controller
 
     }
     public function create()
-    {
+      {
 
-       return response()
-                ->json([
-                    'form' => User::form(),
-                    'option' => []
-                ]);
-    }
+         return response()
+                  ->json([
+
+                      'form' => User::form(),
+                      'option' => []
+                  ]);
+      }
     public function store(Request $request)
     {
       /*  $v = \Validator::make($request->all(), Actividad::rules());
@@ -45,7 +46,7 @@ class UserController extends Controller
     }
     public function edit($id)
    {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
 
 
@@ -58,15 +59,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
      {
         //creo una variable
-          $user=User::find($id);
-          $user->name=$request->name;
-          $user->email=$request->email;
-            //devolver codigo estado
-          if($user->save()){
-              return response()->json(['OK'],200);
-          }else{
-              return response()->json(['Not found'],404);
-          }
+          $user=User::findOrFail($id);
+          $user->update($request->all());
+          return response()
+                  ->json([
+                      'saved' => true
+
+                  ]);
 
 
      }

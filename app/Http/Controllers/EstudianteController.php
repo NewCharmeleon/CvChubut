@@ -59,7 +59,13 @@ class EstudianteController extends Controller
     {
        //creo una variable
          $estudiante=Estudiante::find($id);
-         $estudiante->persona=$request->persona;
+         $estudiante->update($request->all());
+         return response()
+                 ->json([
+                     'saved' => true
+                     
+                 ]);
+         /*$estudiante->persona=$request->persona;
          $estudiante->rol=$request->rol;
          $estudiante->carrera=$request->carrera;
            //devolver codigo estado
@@ -67,7 +73,7 @@ class EstudianteController extends Controller
              return response()->json(['OK'],200);
          }else{
              return response()->json(['Not found'],404);
-         }
+         }*/
 
 
     }

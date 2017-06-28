@@ -1,7 +1,8 @@
 <template >
 <div>
   <h2>{{titulo}}</h2>
-  <form  @submit.prevent="save">
+  <p>Edicion de Usuarios</p>
+    <form  @submit.prevent="save">
     <div class="form-group">
       <label for="add-nombre">Nombre</label>
       <input class="form-control" id="add-nombre" v-model="form.name" />
