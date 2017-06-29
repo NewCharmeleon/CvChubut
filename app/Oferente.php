@@ -9,6 +9,11 @@ class Oferente extends Model
   protected $table = 'oferentes';
   //
   protected $fillable = [
-    'persona', 'rol',
+    'persona', 'rol'
   ];
+  public static function form(){
+	  return ['persona' => '', 'rol' => ''];
+	  
+	  
+  }
 }

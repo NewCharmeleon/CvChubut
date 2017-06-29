@@ -11,4 +11,9 @@ class Referente extends Model
     protected $fillable = [
       'persona', 'rol',
     ];
+	public static function form(){
+	  return [];
+	  
+	  
+  }
 }

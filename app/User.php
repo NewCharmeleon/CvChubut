@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
 
     /**
@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+	//metodo static con valores por defecto para crear
+	public static function form(){
+	  return ['name' => '', 'email' => '', 'password' =>'123456'];
+	}
+	function setPasswordAttribute($value){
+		$this->attributes['password'] = \Hash::make($value);//en base 64
+		
+	}
 }

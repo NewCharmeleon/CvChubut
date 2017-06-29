@@ -16,4 +16,9 @@ class Actividad extends Model
   protected $fillable = [
       'nombre', 'descripcion',
   ];
+  public static function form(){
+	  return [];
+	  
+	  
+  }
 }
