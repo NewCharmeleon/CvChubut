@@ -11,7 +11,9 @@
               <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>email</th>
+                <th>Email</th>
+                <th>Rol</th>
+
               </tr>
             </thead>
             <tbody v-if="!users">
@@ -21,7 +23,7 @@
                 <td>
                   <router-link :to="{ path: '/usuarios/'+user.id }">{{ user.name}}</router-link>
                 </td>
-                <td> {{user.email}}
+                <td> {{user.email}}{{user.role}}
                 </td>
               </tr>
             </tbody>

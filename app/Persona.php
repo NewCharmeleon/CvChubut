@@ -8,12 +8,24 @@ class Persona extends Model
 {
     //
 	 protected $fillable = [
-        'nombre', 'dni', 'fechanac','nacionalidad', 'direccion', 'ciudad', 'telefono'
+        'nombre', 'user_id', 'dni', 'nacionalidad', 'direccion', 'fecha_nac','telefono'
     ];
-	  
-	  
-  }
+
+
+
   public static function form(){
-	  return ['nombre' => '', 'dni' => 0, 'fechanac' => '','nacionalidad' => '', 'direccion' => '', 'ciudad' => '', 'telefono' => ''];
+	  return ['nombre' => '', 'user_id' => 0,'dni' => 0, 'nacionalidad' =>'', 'direccion' => '', 'fecha_nac' => '', 'telefono' => ''];
 	}
+	public function users(){
+  	return $this->belongsTo('App\User');
+	}
+	public function estudiantes() {
+			return $this->hasOne('Estudiante::class');
+		}
+		public function oferentes(){
+        return $this->hasMany('App\Oferente');
+    }
+		public function referentes(){
+        return $this->hasMany('App\Referente');
+    }
 }

@@ -27,12 +27,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function roles(){
+        return $this->belongsToMany('App\Role');
+    }
+    public function personas() {
+  return $this->hasOne('App\Persona');
+}
 	//metodo static con valores por defecto para crear
 	public static function form(){
-	  return ['name' => '', 'email' => '', 'password' =>'123456'];
+
+	  return ['name' => '', 'email' => '', 'password' =>'123456', 'role' => ''];
 	}
 	function setPasswordAttribute($value){
 		$this->attributes['password'] = \Hash::make($value);//en base 64
-		
+
 	}
+  //establecemos las relaciones con el modelo Role, ya que un usuario puede tener varios roles
+   //y un rol lo pueden tener varios usuarios
+
 }

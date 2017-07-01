@@ -13,6 +13,11 @@
       <input class="form-control" id="add-email" v-model="form.email" />
       <small class="text-danger" v-if="errors.email"  v-for="error in errors.email" >{{ error }}</small>
     </div>
+    <div class="form-group">
+      <label for="add-role">Rol</label>
+      <input class="form-control" id="add-role" v-model="form.role" />
+      <small class="text-danger" v-if="errors.role"  v-for="error in errors.role" >{{ error }}</small>
+    </div>
     <button class="btn btn-success">Guardar</button>
      <router-link :to="{ path: '/usuarios' }" class="btn btn-danger">Cancelar</router-link>
   </form>

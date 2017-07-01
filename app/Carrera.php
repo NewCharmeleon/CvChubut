@@ -6,13 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carrera extends Model
 {
+   protected $table = 'carreras';
    protected $fillable = [
-        'name', 'descripcion'
+        'descripcion'
     ];
- 
+
 	//metodo static con valores por defecto para crear
 	public static function form(){
-	  return ['name' => '', 'descripcion' => ''];
+	  return ['descripcion' => ''];
+
+    public function estudiantes(){
+        return $this->hasMany('App\Estudiante');
+      }
 	}
-	
+
 }

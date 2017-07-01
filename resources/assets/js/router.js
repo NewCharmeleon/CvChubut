@@ -49,9 +49,7 @@ export default new VueRouter({
 		path: '/usuarios',
 		components: {
 			default: IndexUsuario,
-			
-
-					}
+								}
 		},
 
 		{path: '/usuarios/create', component: FormUsuario},

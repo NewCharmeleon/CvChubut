@@ -6,16 +6,21 @@ use Illuminate\Http\Request;
 
 //use App\Http\Requests;
 use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
+  //$role=Role::findOrFail('display_name');
   public function index()
    {
-       return  User::orderBy('id')->get();
+      $Roles = User::with('Roles')->get();
+      $display_name = $Roles->(display_name);
+       return  User::orderBy('id')->with('display_name', $display_name)->get();
 
    }
    public function show(Request $request, $id)
     {
+
         return  User::findOrFail($id);
 
     }

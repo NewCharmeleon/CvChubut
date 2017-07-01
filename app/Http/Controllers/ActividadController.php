@@ -59,7 +59,7 @@ class ActividadController extends Controller
      {
         //creo una variable
           $actividad=Actividad::findOrFail($id);
-          $actividad->update($request->all());
+
           //$actividad->nombre=$request->nombre;
           //$actividad->descripcion=$request->descripcion;
             //devolver codigo estado
@@ -68,10 +68,11 @@ class ActividadController extends Controller
           }else{
               return response()->json(['Not found'],404);
           }*/
+          $actividad->update($request->all());
           return response()
                   ->json([
                       'saved' => true
-                      
+
                   ]);
 
 

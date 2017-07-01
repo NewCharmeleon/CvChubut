@@ -13,7 +13,13 @@ class Estudiante extends Model
   ];
   public static function form(){
 	  return ['persona' => '', 'rol' => '','carrera'=> ''];
-	  
-	  
+
+  public function carreras(){
+    	return $this->belongsTo('App\Carrera');
+  	}
+    public function personas() {
+        return $this->hasOne('Persona::class');
+  }
+
   }
 }

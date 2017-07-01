@@ -10,6 +10,8 @@
         <br><br>
         <b>Email: </b> {{ model.email }}
         <br><br>
+        <b>Perfil: </b> {{ model.role }}
+        <br><br>
 
     <br/>
           <router-link :to="{ path: '/usuarios' }" class="btn btn-danger">Listado</router-link>

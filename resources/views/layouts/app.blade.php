@@ -52,6 +52,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Logueate</a></li>
                             <li><a href="{{ url('/register') }}">Registrate</a></li>
+
                         @else
                           <!-- Authentication Role Buttons -->
                             @if (Entrust::hasRole('administrador'))
@@ -73,8 +74,9 @@
                             @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}<ul>{{Auth::user()->roles[0]->display_name}} </u><span class="caret"></span>
                                 </a>
+
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
@@ -95,7 +97,9 @@
             </div>
         </nav>
 
+
         @yield('content')
+      
     </div>
 
     <!-- Scripts -->
