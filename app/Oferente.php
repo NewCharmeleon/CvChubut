@@ -9,11 +9,15 @@ class Oferente extends Model
   protected $table = 'oferentes';
   //
   protected $fillable = [
-    'persona', 'rol'
+    'persona_id'
   ];
   public static function form(){
-	  return ['persona' => '', 'rol' => ''];
-	  
-	  
+	  return ['persona_id' => ''];
+
+    public function personas() {
+        return $this->hasOne('Persona::class');
+      }
+
+
   }
 }

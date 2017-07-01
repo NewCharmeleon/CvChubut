@@ -31,7 +31,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
     public function personas() {
-  return $this->hasOne('App\Persona');
+  return $this->belongsTo('Persona::class');
 }
 	//metodo static con valores por defecto para crear
 	public static function form(){

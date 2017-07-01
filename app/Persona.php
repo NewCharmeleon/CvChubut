@@ -17,7 +17,7 @@ class Persona extends Model
 	  return ['nombre' => '', 'user_id' => 0,'dni' => 0, 'nacionalidad' =>'', 'direccion' => '', 'fecha_nac' => '', 'telefono' => ''];
 	}
 	public function users(){
-  	return $this->belongsTo('App\User');
+  	return $this->hasOne('App\User');
 	}
 	public function estudiantes() {
 			return $this->hasOne('Estudiante::class');

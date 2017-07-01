@@ -16,14 +16,20 @@ class CreatePersonasTable extends Migration
         Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->unsignedInteger('user_id')->nullable()->index();
-            $table->string('dni', 9)->unique;
+            $table->integer('user_id')->unsigned();
+            $table->string('dni', 9)->unique();
             $table->string('nacionalidad', 20);
             $table->string('direccion', 20);
             $table->date('fecha_nac');
             $table->string('telefono', 15);
             $table->timestamps();
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+              ->onUpdate('cascade')->onDelete('cascade');
+
+          //  $table->foreign('user_id')->references('id')->on('users')
+            //    integer('persona_id')->unsigned()->onDelete('cascade');
+
+            //$table->primary(['user_id']);
         });
     }
 

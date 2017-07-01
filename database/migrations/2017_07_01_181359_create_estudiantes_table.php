@@ -15,10 +15,21 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('persona_id')->nullable()->index();
-            $table->unsignedInteger('carrera_id')->nullable()->index();
-            $table->unsignedInteger('actividad_id')->nullable()->index();
+            $table->integer('persona_id')->unsigned()->index();
+            $table->integer('carrera_id')->unsigned();
+            $table->integer('actividad_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('persona_id')->references('id')->on('personas')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('carrera_id')->references('id')->on('carreras')
+              ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('actividad_id')->references('id')->on('actividades')
+                  ->onUpdate('cascade')->onDelete('cascade');
+
+
         });
     }
 
