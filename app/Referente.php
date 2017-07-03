@@ -13,7 +13,13 @@ class Referente extends Model
     ];
 	public static function form(){
 	  return [];
-	  
-	  
+
+    public function personas() {
+        return $this->hasOne('Persona::class');
+      }
+    public function ActividadEspecifica(){
+        return $this->hasMany('App\ActividadEspecifica');
+    } 
+
   }
 }

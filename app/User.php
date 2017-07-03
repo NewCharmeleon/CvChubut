@@ -28,11 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function roles(){
-        return $this->belongsToMany('App\Role');
+        return $this->hasOne('App\Role');
     }
     public function personas() {
-  return $this->belongsTo('Persona::class');
-}
+        return $this->hasOne('Persona::class');
+      }
 	//metodo static con valores por defecto para crear
 	public static function form(){
 

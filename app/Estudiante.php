@@ -19,10 +19,10 @@ class Estudiante extends Model
   	}
     public function personas() {
         return $this->hasOne('Persona::class');
-      }
-      public function actividades(){
+    }
+    public function actividades(){
           return $this->hasMany('App\Actividad');
-      }  
+    }  
 
   }
 }

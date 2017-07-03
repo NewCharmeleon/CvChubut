@@ -17,6 +17,9 @@ class Oferente extends Model
     public function personas() {
         return $this->hasOne('Persona::class');
       }
+    public function ActividadEspecifica(){
+        return $this->hasMany('App\ActividadEspecifica');
+    }
 
 
   }

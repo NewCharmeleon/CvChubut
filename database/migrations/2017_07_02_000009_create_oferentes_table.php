@@ -13,12 +13,14 @@ class CreateOferentesTable extends Migration
     {
       Schema::create('oferentes', function (Blueprint $table) {
           $table->increments('id');
-          $table->unsignedInteger('persona_id')->nullable()->index();
-          $table->unsignedInteger('actividad_id')->nullable()->index();
+          $table->unsignedInteger('id_persona')->nullable()->index();
+          $table->integer('id_actividad')->unsigned();
           $table->timestamps();
 
-          $table->foreign('persona_id')->references('id')->on('personas')
+          $table->foreign('id_persona')->references('id_user')->on('personas')
               ->onUpdate('cascade')->onDelete('cascade');
+          $table->foreign('id_actividad')->references('id')->on('actividades')
+                    ->onUpdate('cascade')->onDelete('cascade');
       });
     }
     /**

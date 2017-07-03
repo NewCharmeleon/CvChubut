@@ -14,16 +14,17 @@ class CreatePersonasTable extends Migration
     public function up()
     {
         Schema::create('personas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id_user')->unsigned();
+            $table->primary('id_user');
             $table->string('nombre');
-            $table->integer('user_id')->unsigned();
+            //$table->integer('id_user')->unsigned();
             $table->string('dni', 9)->unique();
             $table->string('nacionalidad', 20);
             $table->string('direccion', 20);
             $table->date('fecha_nac');
             $table->string('telefono', 15);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('id_user')->references('id')->on('users')
               ->onUpdate('cascade')->onDelete('cascade');
 
           //  $table->foreign('user_id')->references('id')->on('users')
