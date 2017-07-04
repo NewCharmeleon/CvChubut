@@ -22,7 +22,8 @@ class ActividadEspecifica extends Model
   //metodo static con valores por defecto para crear
   public static function form(){
     $fecha = mktime(date("Y"), date("m"), date("d"));
-    return ['nombre' => '', 'fecha_desde' =>$fecha, 'fecha_hasta' =>$fecha,
+    $tipoAct = 'Actividad'->'id_tipo_act';
+    return ['nombre' => '', 'tipo_actividad' => '','fecha_desde' =>$fecha, 'fecha_hasta' =>$fecha,
     'instancia' => '', 'puesto_mencion' =>'','inst_referente' => '',
     'inst_oferente' => '', 'lugar' =>'','descripcion' =>''];
 

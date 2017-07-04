@@ -73,7 +73,7 @@
                               <li></li>
                             @endif
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }}<ul>{{Auth::user()->roles[0]->display_name}} </u><span class="caret"></span>
                                 </a>
 
@@ -99,7 +99,7 @@
 
 
         @yield('content')
-      
+
     </div>
 
     <!-- Scripts -->

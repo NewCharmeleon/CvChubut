@@ -1,11 +1,11 @@
 <?php
 
 namespace App;
-//use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-
+use App\Role;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'display_name', 'email', 'password'
     ];
 
     /**
@@ -27,22 +27,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function roles(){
-        return $this->hasOne('App\Role');
-    }
-    public function personas() {
-        return $this->hasOne('Persona::class');
-      }
+
 	//metodo static con valores por defecto para crear
 	public static function form(){
 
-	  return ['name' => '', 'email' => '', 'password' =>'123456', 'role' => ''];
+	  return ['name' => '', 'display_name' => '','email' => '', 'password' =>'123456', ];
 	}
 	function setPasswordAttribute($value){
 		$this->attributes['password'] = \Hash::make($value);//en base 64
 
 	}
-  //establecemos las relaciones con el modelo Role, ya que un usuario puede tener varios roles
-   //y un rol lo pueden tener varios usuarios
+  public function roles(){
+      return $this->belongsTo('App\Role','display_name');
+  }
+  public function personas() {
+      return $this->hasOne('Persona::class');
+    }
 
 }
