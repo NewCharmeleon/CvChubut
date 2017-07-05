@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,9 +35,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Cv Chubut') }}
+                    <a class="navbar-brand" href="{{ url('/') }}" >
+                        {{ config('app.name', 'Cv Chubut')}}
                     </a>
+
+                    <img src="{{ asset('imagenes/logoUDC.png') }}" ></img>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -74,7 +76,7 @@
                             @endif
                             <li class="dropdown">
                                 <a href="home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }}<ul>{{Auth::user()->roles[0]->display_name}} </u><span class="caret"></span>
+                                    {{ Auth::user()->name }}<ul> </u><span class="caret"></span>
                                 </a>
 
 
@@ -100,9 +102,12 @@
 
         @yield('content')
 
+        <router-view class="view">Bienvenido</router-view>
+
     </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="{{ asset('js/vue.min.js')}}"></script>
 </body>
 </html>

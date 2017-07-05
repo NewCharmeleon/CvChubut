@@ -17,14 +17,14 @@ class UserController extends Controller
       //$Roles = User::with('Roles')->get();
     //  with(['listaTRoles'=>$listaTRoles]
       //$display_name = Role->display_name;
-       return  User::orderBy('id')->with('roles')->get();
+       return  User::with('roles')->get()->toJson();
       // return  User::all()->load(['display_name' => $listaRoles]);
 
    }
    public function show(Request $request, $id)
     {
 
-        return  User::findOrFail($id);
+        return  User::with('roles')->findOrFail($id);
 
     }
     public function create()
@@ -54,7 +54,7 @@ class UserController extends Controller
     }
     public function edit($id)
    {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
 
 
 
@@ -67,7 +67,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
      {
         //creo una variable
-          $user=User::findOrFail($id);
+          $user=User::with('roles')->findOrFail($id);
           $user->update($request->all());
           return response()
                   ->json([
@@ -79,7 +79,7 @@ class UserController extends Controller
      }
      public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
 
         $user->delete();
 

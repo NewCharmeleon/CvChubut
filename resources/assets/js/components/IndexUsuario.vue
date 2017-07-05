@@ -1,12 +1,12 @@
 <template>
     <div>
+      3444234233423434234234
         <h2>Usuarios</h2>
             <div class="actions">
-
-                <router-link :to="{ path: '/usuarios/create' } "
-                 class="btn btn-info">Nuevo Usuario</router-link>
+                <router-link :to="'/usuarios/create'" class="btn btn-info">Nuevo Usuario</router-link>
             </div>
-            <table class="table">
+
+            <table>
               <thead>
               <tr>
                 <th>Id</th>
@@ -16,19 +16,30 @@
 
               </tr>
             </thead>
-            <tbody v-if="!users">
-              <tr v-for="user in model">
-                <td>
-                  {{user.id}}</td>
-                <td>
-                  <router-link :to="{ path: '/usuarios/'+user.id }">{{ user.name}}</router-link>
-                </td>
-                <td> {{user.email}}{{user.role}}
-                </td>
-              </tr>
-            </tbody>
-            <tbody v-else>
-              <h2>No existen datos de Usuario</h2>
+            <tbody>
+
+              <template v-if="model.length != 0">
+                <tr v-for="user in model">
+                  <td>
+                    {{user.id}}
+                  </td>
+                  <td>
+                    <router-link :to="'/usuarios/'+user.id">{{ user.name}}</router-link>
+                  </td>
+                  <td>
+
+                  </td>
+                  <td>
+                    {{user.name}}
+                  </td>
+                </tr>
+
+              </template>
+              <template v-else>
+                <tr> <td>  <h2>No existen datos de Usuario</h2> </td></tr>
+              </template>
+
+
             </tbody>
           </table>
 
@@ -36,13 +47,16 @@
 </template>
 
 <script>
+
+import Vue from 'vue'
+
 export default {
     data() {
         return {
           model : {}
 
     }
-},
+   },
     beforeMount() {
       console.log('Component mounted.')
       this.fetchData()
@@ -56,7 +70,7 @@ export default {
           .catch(function(error) {
             console.log(error)
           })
-      },
+      }
     }
 }
 </script>

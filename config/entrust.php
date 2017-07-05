@@ -7,8 +7,8 @@
  * @license MIT
  * @package Zizaco\Entrust
  */
-use App\Models\Permission;
-use App\Model\Role;
+use App\Permission;
+use App\Role;
 return [
 
     /*
@@ -42,7 +42,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => Permission::class;
+    'permission' => Permission::class,
     //'App\Permission',
 
     /*

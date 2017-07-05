@@ -45,11 +45,10 @@ import IndexReferente from './components/IndexEstudiante.vue'
 export default new VueRouter({
 	mode: 'hash',
 	base: __dirname,
-	routes: [{
+	routes: [
+		{
 		path: '/usuarios',
-		components: {
-			default: IndexUsuario,
-								}
+		components:  IndexUsuario,
 		},
 
 		{path: '/usuarios/create', component: FormUsuario},

@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="add-role">Rol</label>
-      <input class="form-control" id="add-role" v-model="form.role" />
+      <input type="text" class="form-control" id="add-role" v-model="form.role" />
       <small class="text-danger" v-if="errors.role"  v-for="error in errors.role" >{{ error }}</small>
     </div>
     <button class="btn btn-success">Guardar</button>

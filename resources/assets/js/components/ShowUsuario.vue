@@ -10,7 +10,9 @@
         <br><br>
         <b>Email: </b> {{ model.email }}
         <br><br>
-        <b>Perfil: </b> {{ model.role }}
+        <b>Perfil: </b><div v-for="(role, display_name) of model.roles">
+           {{ role.display_name }}
+         </div>
         <br><br>
 
     <br/>
@@ -23,7 +25,7 @@
     export default {
         data() {
             return {
-              model : { }
+              model : []
         }
     },
     beforeMount() {
