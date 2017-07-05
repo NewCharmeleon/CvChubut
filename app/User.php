@@ -31,7 +31,7 @@ class User extends Authenticatable
 	//metodo static con valores por defecto para crear
 	public static function form(){
 
-	  return ['name' => '', 'display_name' => null,'email' => '', 'password' =>'123456', ];
+	  return ['name' => '', 'display_name' => '','email' => '', 'password' =>'123456' ];
 	}
 	function setPasswordAttribute($value){
 		$this->attributes['password'] = \Hash::make($value);//en base 64
@@ -43,6 +43,6 @@ class User extends Authenticatable
   public function personas() {
       return $this->hasOne('Persona::class');
     }
-  
+
 
 }

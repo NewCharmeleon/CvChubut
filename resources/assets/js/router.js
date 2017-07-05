@@ -46,9 +46,10 @@ export default new VueRouter({
 	mode: 'hash',
 	base: __dirname,
 	routes: [
-		{
-		path: '/usuarios',
-		components:  IndexUsuario,
+		{path: '/usuarios',
+		components: {
+			default: IndexUsuario,
+								}
 		},
 
 		{path: '/usuarios/create', component: FormUsuario},

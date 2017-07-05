@@ -68,7 +68,7 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-			'table' => 'users',//agregado para funcionar con Entrust
+			      'table' => 'users',//agregado para funcionar con Entrust
         ],
 
         // 'users' => [

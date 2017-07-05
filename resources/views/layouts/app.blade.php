@@ -70,13 +70,21 @@
                               <li> <router-link :to="{ path: '/estudiantes' }" class="btn btn-info">Estudiantes</router-link></li>
                               <li><router-link :to="{ path: '/actividades' }" class="btn btn-info">Actividades</router-link></li>
                               <li></li>
+                            @elseif (Entrust::hasRole('oferente'))
+                                <li> <router-link :to="{ path: '/estudiantes' }" class="btn btn-info">Estudiantes</router-link></li>
+                                <li><router-link :to="{ path: '/actividadesEspecifica' }" class="btn btn-info">Actividades</router-link></li>
+                                <li></li>
                             @elseif (Entrust::hasRole('estudiante'))
                               <li><router-link :to="{ path: '/actividades' }" class="btn btn-info">Actividades</router-link></li>
+                              <li><router-link :to="{ path: '/actividadesEspecifica' }" class="btn btn-info">Actividades</router-link></li>
                               <li></li>
+                              @elseif (!(Entrust::hasRole('administrador','secretaria','oferente','estudiante')))
+                                <li><router-link :to="{ path: '/actividadesEspecifica' }" class="btn btn-info">Actividades</router-link></li>
+                                <li></li>
                             @endif
                             <li class="dropdown">
                                 <a href="home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }}<ul> </u><span class="caret"></span>
+                                    {{ Auth::user()->name }}<ul> {{ Auth::user()->role}}</u><span class="caret"></span>
                                 </a>
 
 
